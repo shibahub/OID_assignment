@@ -1,5 +1,5 @@
 from pysnmp.smi import builder, view , error
-
+#system
 mibBuilder = builder.MibBuilder()
 mibViewController = view.MibViewController(mibBuilder)
 mibBuilder.loadModules('SNMPv2-MIB', 'SNMP-COMMUNITY-MIB')
@@ -15,5 +15,6 @@ while True:
         oid, label, suffix = mibView.getNextNodeName(oid)
 
     except error.NoSuchObjectError:
+        print(error)
         break
 
